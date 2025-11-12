@@ -1,5 +1,7 @@
 # SERIAL-IN-SERIAL-OUT-SHIFTREGISTER
-
+## NAME: M.V.Vamsidhar Reddy
+## REG NO:212224040205
+## DATE: 12-11-2025
 **AIM:**
 
 To implement  SISO Shift Register using verilog and validating their functionality using their functional tables
@@ -25,18 +27,50 @@ Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and a
 
 **Procedure**
 
-/* write all the steps invloved */
+1. Understand: In a SISO shift register, data enters serially and shifts out serially bit by bit.
+
+2. Define module with inputs clk, sin and output q[3:0].
+
+3. Use always block triggered on posedge clk.
+
+4. Shift data: Move each bit right — q[0] <= sin; q[1] <= q[0]; q[2] <= q[1]; q[3] <= q[2];.
+
+5. Apply input: Give serial input bits one by one with each clock pulse.
+
+6. Simulate: Observe bits shifting through the register on every clock edge.
+
+7. Verify: Check that the serial output appears from the last bit q[3].
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+    /* Program for flipflops and verify its truth table in quartus using Verilog programming.
 
-Developed by: RegisterNumber:
+    module siso(clk, sin, q);
+    input clk;
+    input sin;
+    output [3:0] q;
+    reg [3:0] q;
+    always @(posedge clk)
+    begin
+    q[0] <= sin;
+    q[1] <= q[0];
+    q[2] <= q[1];
+    q[3] <= q[2];
+    end
+    endmodule
 
-*/
+    */
 
 **RTL LOGIC FOR SISO Shift Register**
 
+<img width="1907" height="1138" alt="RTL" src="https://github.com/user-attachments/assets/6e461a87-ac89-4967-befd-ae0beab30a80" />
+
+
 **TIMING DIGRAMS FOR SISO Shift Register**
 
+<img width="1902" height="1113" alt="TIMING DIAGRAM" src="https://github.com/user-attachments/assets/6b43d82a-920a-49ef-a566-01a951ba3c72" />
+
+
 **RESULTS**
+
+The given SERIES IN SERIES OUT Shift Register is successfully implemented using Verilog HDL in the Quartus Prime.
